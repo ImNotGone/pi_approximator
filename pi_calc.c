@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include "randlib.h"
-#include <time.h>
+#include <randlib.h>
 
 #define RADIUS 1
 #define ITERATIONS 100000
