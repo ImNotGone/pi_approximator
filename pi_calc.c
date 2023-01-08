@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <randlib.h>
+#include <getnum.h>
 
 #define RADIUS 1
-#define ITERATIONS 100000
 
 bool is_inside_circle(double x, double y, double radius);
 
@@ -13,8 +13,11 @@ int main() {
     double pi = 1;
     int inside_circle_counter = 1;
 
+    int iterations = getint("Cuantas iteraciones desea hacer? ");
+
     double x, y;
-    for(int i = 0; i < ITERATIONS; i++) {
+    printf(" Iteracion | PI\n");
+    for(int i = 1; i <= iterations; i++) {
         x = randReal(-1, 1);
         y = randReal(-1, 1);
 
@@ -22,9 +25,10 @@ int main() {
             inside_circle_counter++;
         }
         pi = (double)(4*inside_circle_counter)/(i);
-        printf(" %06d | %f \n", i, pi);
+        printf("%10d | %f\n", i, pi);
     }
-
+    putchar('\n');
+    printf("PI: %.8f\n", pi);
     return 0;
 }
 
