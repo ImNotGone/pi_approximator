@@ -1,8 +1,13 @@
 GCC=gcc
-FLAGS=-std=c99 -Wall -pedantic -Iinclude
-LIBS=-lm
+FLAGS=-std=c99 -Wall -pedantic -Iinclude -lm
+LIBS=$(wildcard libs/*.c)
+SOURCE=pi_calc.c
+BINARY=$(SOURCE:.c=)
 
 all:
-	$(GCC) $(FLAGS) -o pi_calc pi_calc.c libs/randlib.c libs/getnum.c $(LIBS)
+	$(GCC) $(FLAGS) -o $(BINARY) $(SOURCE) $(LIBS)
 
-.phony: all
+clean:
+	rm $(BINARY)
+
+.phony: all clean
