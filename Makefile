@@ -1,7 +1,7 @@
 GCC=gcc
 FLAGS=-std=c99 -Wall -pedantic -Iinclude -lm
 LIBS=$(wildcard libs/*.c)
-SOURCE=pi_calc.c
+SOURCE=pi_approximator.c
 BINARY=$(SOURCE:.c=)
 
 all:
