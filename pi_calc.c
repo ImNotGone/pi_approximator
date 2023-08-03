@@ -9,7 +9,6 @@
 
 bool is_inside_circle(double x, double y, double radius);
 
-
 int main() {
     randomize();
     double pi = 1;
@@ -19,7 +18,7 @@ int main() {
 
     double x, y;
     bool is_inside;
-    printf(" Iteracion |    PI    | IN? | (x, y)\n");
+    printf(" Iteracion |    PI    | IN? | (  x  ,   y  )\n");
     for(int i = 1; i <= iterations; i++) {
         x = randReal(-1, 1);
         y = randReal(-1, 1);
@@ -30,9 +29,11 @@ int main() {
             inside_circle_counter++;
         }
         pi = (double)(4*inside_circle_counter)/(i);
-        printf("%10d | %.6f | %3s | (%.2f, %.2f)\n", i, pi, is_inside?"yes": "no", x, y);
+        printf("%10d | %.6f | %3s | (%+.2f, %+.2f)\n", i, pi, is_inside?"yes": "no", x, y);
     }
     putchar('\n');
+    printf("Iteraciones: %d\n", iterations);
+    printf("Cayo adentro un %.2f%%\n", (((inside_circle_counter-1)*100.0)/iterations));
     printf("PI: %.8f\n", pi);
     printf("Error: %.2f%%\n", ((pi - M_PIf) * 100)/M_PIf);
     return 0;
